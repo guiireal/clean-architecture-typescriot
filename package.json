@@ -5,7 +5,7 @@
   "author": "guiireal <guii_real@hotmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "jest"
+    "test": "jest --watch"
   },
   "devDependencies": {
     "@types/jest": "^26.0.20",
