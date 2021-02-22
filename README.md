@@ -1,1 +1,1 @@
-# Clean Achitecture with Typescriot + Node.js
+# Clean Achitecture with Typescript + Node.js
