@@ -83,6 +83,23 @@ describe("SignUp Controller", () => {
     );
   });
 
+  test("Should return 400 password confirmation fails", () => {
+    const { sut } = makeSut();
+    const httpRequest = {
+      body: {
+        name: "any_name",
+        email: "fop@example.com",
+        password: "password",
+        passwordConfirmation: "invalid_password",
+      },
+    };
+    const httpResponse = sut.handle(httpRequest);
+    expect(httpResponse.statusCode).toBe(400);
+    expect(httpResponse.body).toEqual(
+      new InvalidParamError("passwordConfirmation")
+    );
+  });
+
   test("Should return 400 if an invalid email is provided", () => {
     const { sut, emailValidatorStub } = makeSut();
     jest.spyOn(emailValidatorStub, "isValid").mockReturnValueOnce(false);
